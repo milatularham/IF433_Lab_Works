@@ -58,5 +58,83 @@ fun main() {
  println("Peminjam :${loan.borrower}")
  println("Lama Pinjam :${loan.loanDuration}hari")
  println("Total Denda :Rp${loan.calculateFine()}")
+ scanner.nextLine()
     }
+    println()
+    println("=== MINI RPG BATTLE ===")
+
+    print("Masukkan nama Hero: ")
+    val heroName = scanner.nextLine()
+
+    print("Masukkan base damage Hero: ")
+    val baseDamage = scanner.nextInt()
+
+    val hero = Hero(
+        name = heroName,
+        baseDamage = baseDamage
+    )
+
+    var enemyHp = 100
+
+    while (hero.isAlive() && enemyHp > 0) {
+
+        println()
+        println("--- MENU BATTLE ---")
+        println("1. Serang")
+        println("2. Kabur")
+        print("Pilih menu: ")
+
+        val pilihan = scanner.nextInt()
+
+        if (pilihan == 1) {
+
+            // Hero menyerang musuh
+            hero.attack("Musuh")
+
+            enemyHp -= hero.baseDamage
+
+            if (enemyHp < 0) {
+                enemyHp = 0
+            }
+
+            println("Musuh terkena ${hero.baseDamage} damage!")
+            println("Sisa HP Musuh: $enemyHp")
+
+            // Musuh membalas jika masih hidup
+            if (enemyHp > 0) {
+
+                val damage = (10..20).random()
+
+                println("Musuh membalas!")
+                hero.takeDamage(damage)
+
+                println("Hero terkena $damage damage!")
+                println("Sisa HP Hero: ${hero.hp}")
+            }
+
+        } else if (pilihan == 2) {
+
+            println("${hero.name} memilih untuk kabur!")
+            break
+
+        } else {
+
+            println("Pilihan tidak valid!")
+        }
+    }
+
+    println()
+    println("=== HASIL PERTANDINGAN ===")
+
+    if (!hero.isAlive()) {
+        println("Hero kalah!")
+    } else if (enemyHp <= 0) {
+        println("${hero.name} menang!")
+    } else {
+        println("Hero kabur dari pertarungan.")
+    }
+
+    println("Sisa HP Hero  : ${hero.hp}")
+    println("Sisa HP Musuh : $enemyHp")
+
 }
