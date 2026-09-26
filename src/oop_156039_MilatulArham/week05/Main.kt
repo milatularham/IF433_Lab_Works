@@ -35,4 +35,22 @@ fun main() {
     println("Luas Persegi Panjang: $luasPersegiPanjang")
     println("Luas Lingkaran: $luasLingkaran")
 
-}
+
+
+    println()
+    println("=== TUGAS 2: SISTEM PEMBAYARAN ===")
+
+    val eWallet = EWallet(
+        accountName = "Milatul Arham",
+        balance = 50000.0
+    )
+
+    val creditCard = CreditCard(
+        accountName = "Milatul Arham",
+        limit = 100000.0
+    )
+
+    val paymentMethods: List<PaymentMethod> = listOf(
+        eWallet,
+        creditCard
+    )}
