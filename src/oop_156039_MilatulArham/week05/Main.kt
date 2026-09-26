@@ -53,4 +53,21 @@ fun main() {
     val paymentMethods: List<PaymentMethod> = listOf(
         eWallet,
         creditCard
-    )}
+    )
+    for (payment in paymentMethods) {
+
+        println()
+        println("Akun: ${payment.accountName}")
+
+        payment.processPayment(75000.0)
+
+        if (payment is EWallet) {
+            println("Saldo tidak cukup, melakukan top up otomatis...")
+
+            payment.topUp(50000.0)
+
+            println("Mencoba pembayaran kembali:")
+            payment.processPayment(75000.0)
+        }
+    }
+}
