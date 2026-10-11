@@ -39,4 +39,10 @@ fun main() {
     println("=== GAME MANAGER ===")
     GameManager.startGame()
     GameManager.startGame()
+
+    println("\n=== ITEM RARITY ===")
+    println(
+        "Legendary Drop Chance: " +
+                "${ItemRarity.LEGENDARY.dropChance}%"
+    )
 }
