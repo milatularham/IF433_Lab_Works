@@ -1,19 +1,20 @@
-package oop_156039_MilatulArham.Wee06
+package oop_156039_MilatulArham.week06
 
-class SmartSpeaker(
+class SmartCCTV(
     override val id: String,
     override val name: String
-) : SmartDevice, Switchable {
+) : SmartDevice, Switchable, Recordable {
 
     override fun turnOn() {
         println("$name menyala.")
+        startRecord()
     }
 
     override fun turnOff() {
         println("$name dimatikan.")
     }
 
-    fun playMusic(song: String) {
-        println("Memutar lagu $song dari Spotify.")
+    override fun startRecord() {
+        println("$name mulai merekam.")
     }
 }

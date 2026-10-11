@@ -1,4 +1,4 @@
-package oop_156039_MilatulArham.Wee06
+package oop_156039_MilatulArham.week06
 
 fun processorCheckout(method: PaymentMethod, amount: Double) {
     println("-> Memulai checkout...")

@@ -1,4 +1,4 @@
-package oop_156039_MilatulArham.Wee06
+package oop_156039_MilatulArham.week06
 
 class Gopay : PaymentMethod {
     override fun pay(amount: Double) { println("Processing Rp$amount via Gopay Server") }
