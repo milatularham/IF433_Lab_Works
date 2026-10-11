@@ -45,4 +45,43 @@ fun main() {
         "Legendary Drop Chance: " +
                 "${ItemRarity.LEGENDARY.dropChance}%"
     )
+
+    println("\n=== WEAPON FACTORY ===")
+    val starterSword = Weapon.forgeStarterSword()
+
+    println("Nama Senjata: ${starterSword.item.name}")
+    println("Damage: ${starterSword.item.damage}")
+    println("Rarity: ${starterSword.item.rarity}")
+    println("Durability: ${starterSword.durability}")
+
+    val epicSword = Weapon.forgeEpicSword()
+
+    println("\nNama Senjata Epic: ${epicSword.item.name}")
+    println("Damage: ${epicSword.item.damage}")
+    println("Rarity: ${epicSword.item.rarity}")
+
+    println("\n=== WEAPON UPGRADE ===")
+    val upgradedItem = starterSword.item.copy(
+        damage = 25
+    )
+
+    println("Senjata Awal: ${starterSword.item}")
+    println("Senjata Upgrade: $upgradedItem")
+
+    println("\n=== BATTLE EVENTS ===")
+
+    processEvent(BattleState.SafeZone)
+
+    processEvent(
+        BattleState.MonsterEncounter("Goblin Nakal")
+    )
+
+    processEvent(
+        BattleState.LootDropped(upgradedItem)
+    )
+
+    processEvent(
+        BattleState.GameOver("Terkena jebakan racun")
+    )
+
 }
