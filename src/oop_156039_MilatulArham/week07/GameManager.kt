@@ -1,7 +1,5 @@
 package oop_156039_MilatulArham.week07
 
-package oop_00000156039_milatul_arham.week07
-
 object GameManager {
     var isGameRunning: Boolean = false
 
